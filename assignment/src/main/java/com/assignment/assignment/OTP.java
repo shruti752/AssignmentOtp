@@ -33,7 +33,8 @@ public class OTP {
 
     //for countcharacter of string
 
-    public static String countEachCharacter(String str){
+    public static void countEachCharacter(String str){
+        String s= "";
         int count[] = new int[256];
         int len  = str.length();
 
@@ -41,22 +42,25 @@ public class OTP {
             count[str.charAt(i)]++;
 
         char array[] = new char[str.length()];
-        for (int i= 0;i<len;i++){
+        for (int i= 0;i<len;i++) {
             array[i] = str.charAt(i);
             int num = 0;
-            for (int j = 0;j<=i;j++){
+            for (int j = 0; j <= i; j++) {
                 if (str.charAt(i) == array[j])
-                    num ++;
+                    num++;
             }
-            if (num == 1)
-                return ("Occurence of char "+ str.charAt(i)+ "in the string is:"+count[str.charAt(i)]);
+            if (num == 1) {
+                System.out.println("Occurence of char " + str.charAt(i) + " in the string is:" + count[str.charAt(i)]);
+
+            }
         }
-        return "";
+
     }
     @RequestMapping(value = "/countcharacter",method = RequestMethod.GET)
-    public static String callMethod(){
+    public static void callMethod(){
         String string = "shrutishikha";
-        return countEachCharacter(string);
+       countEachCharacter(string);
+
     }
 
 
